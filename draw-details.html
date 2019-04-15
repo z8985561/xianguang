@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <script src="lib/flexible.js"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="lib/mui/css/mui.min.css">
+  <link rel="stylesheet" href="lib/swipe/css/swiper.min.css">
+  <link rel="stylesheet" href="css/xianguang.css">
+  <title>抽奖详情</title>
+</head>
+
+<body>
+  <header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">抽奖详情</h1>
+  </header>
+  <section class="mui-content">
+    <!-- Swiper -->
+    <div class="swiper-container" id="details-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/goods-1.png" width="100%" height="100%" alt=""></div>
+        <div class="swiper-slide"><img src="img/goods-1.png" width="100%" height="100%" alt=""></div>
+        <div class="swiper-slide"><img src="img/goods-1.png" width="100%" height="100%" alt=""></div>
+      </div>
+    </div>
+    <article class="details-price flex flex-jus flex-align-center">
+      <ul class="flex flex-align-center">
+        <li class="left fz-18">￥290.00</li>
+        <li class="middle fz-11">抽奖拼团价</li>
+        <li class="right fz-11">原价￥599.00</li>
+      </ul>
+      <div>
+        距结束:
+        <span>10</span> :
+        <span>25</span> :
+        <span>46</span>
+      </div>
+    </article>
+    <section class="fz-15 plr-20 ptb-30">西班牙原瓶原装进口红酒奥瑞安骑士金标干红葡萄酒整箱六支优惠装 750ml*6 </section>
+    <!-- 购买限制 -->
+    <div class="fz-14 plr-20" style="color: #FF5E5C;">每人只能购买5次</div>
+    <section class="plr-20 flex flex-jus pb-30">
+      <div class="fz-14 c9">奖品编号：M4752</div>
+      <!-- 进度条 -->
+      <div class="progress-bar">
+        <div class="number fz-10">150人</div>
+        <div class="percent fz-10">79%</div>
+        <div class="filled" style="width:79%;"></div>
+      </div>
+    </section>
+    <!-- 开奖时间和公告 -->
+    <section class="draw-tip">
+      <article class="plr-20 flex flex-jus ptb-30">
+        <div class="fz-14 c9">
+          <span class="draw-time fz-12">开奖时间</span>
+          2019-05-01 14:00:00
+        </div>
+        <a class="fz-14" href="#" style="color:#FEB89D;text-decoration: underline;">抽奖规则说明</a>
+      </article>
+      <p class="plr-20 fz-14 c9"><img src="img/lightning.png" alt=""> 极速退款 · 拼团失败后，2小时内退款至商场余额</p>
+      <div class="proclamation plr-20 ptb-30 ">
+        <div class="flex flex-align-center">
+          <div class="left flex flex-center flex-align-center"><img src="img/proclamation.png" alt=""></div>
+          <div class="swiper-container" id="proclamation-tip">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="fz-15" style="color:#FF5E5C">恭喜张*阳   130****0142</div>
+                  <div class="fz-12 c9">36期获得 MacBook Pro 13寸笔记本电脑一部</div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="fz-15" style="color:#FF5E5C">恭喜张*阳   130****0142</div>
+                  <div class="fz-12 c9">36期获得 MacBook Pro 13寸笔记本电脑一部</div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="fz-15" style="color:#FF5E5C">恭喜张*阳   130****0142</div>
+                  <div class="fz-12 c9">36期获得 MacBook Pro 13寸笔记本电脑一部</div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="fz-15" style="color:#FF5E5C">恭喜张*阳   130****0142</div>
+                  <div class="fz-12 c9">36期获得 MacBook Pro 13寸笔记本电脑一部</div>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+    </section>
+    <!-- 开奖时间和公告 -->
+  </section>
+  <nav class="mui-bar mui-bar-tab flex flex-center flex-align-center">
+    <a class="btn-xianguang" href="#">立即参加</a>
+  </nav>
+  <script src="lib/mui/js/mui.min.js"></script>
+  <script src="lib/swipe/js/swiper.min.js"></script>
+  <script>
+    mui.init({
+      swipeBack: true //启用右滑关闭功能
+    });
+    var swiper = new Swiper('#details-swiper', {
+      loop: true
+    });
+    var mySwiper = new Swiper ('#proclamation-tip', {
+      direction: 'vertical', // 垂直切换选项
+      loop: true, // 循环模式选项
+      autoplay:true,
+      allowTouchMove: false,
+    })
+  </script>
+</body>
+
+</html>
