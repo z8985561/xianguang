@@ -125,6 +125,7 @@ li {
   box-shadow: none;
 }
 .mui-content {
+  position: relative;
   background-color: #fff;
   padding-bottom: 50px;
 }
@@ -259,6 +260,12 @@ mb-20 {
   color: #FFC5AF;
   line-height: 1.4em;
 }
+.progress-bar .success {
+  float: left;
+  width: 100%;
+  height: 17px;
+  line-height: 17px;
+}
 .progress-bar .filled {
   height: 100%;
   border-radius: 9px;
@@ -309,4 +316,71 @@ mb-20 {
   margin-left: 0.4rem;
   width: 7.2rem;
   height: 41px;
+}
+.details-nav {
+  display: flex;
+  justify-content: space-around;
+  border-top: 10px solid #f8f8f8;
+  border-bottom: 1px solid #eeeeee;
+}
+.details-nav li {
+  height: 40px;
+  line-height: 40px;
+  width: 1.46666667rem;
+  text-align: center;
+  color: #999999;
+  border-bottom: 2px solid transparent;
+}
+.details-nav li.on {
+  color: #FF5E5C;
+  border-color: #FF5E5C;
+}
+.participation {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.participation > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+}
+.participation > div img {
+  width: 1.33333333rem;
+  margin-bottom: 5px;
+}
+.participation > div p {
+  padding: 0 5px;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dram-people {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9;
+}
+.dram-people img {
+  width: 2.66666667rem;
+  height: 2.66666667rem;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+.footer-tip {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background: linear-gradient(-90deg, #fe7c5a, #ff986e);
+  text-align: center;
 }
