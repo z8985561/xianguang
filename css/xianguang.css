@@ -79,6 +79,15 @@
 [data-dpr="3"] .fz-18 {
   font-size: 54px;
 }
+[data-dpr="1"] .fz-19 {
+  font-size: 19px;
+}
+[data-dpr="2"] .fz-19 {
+  font-size: 38px;
+}
+[data-dpr="3"] .fz-19 {
+  font-size: 57px;
+}
 .cf {
   color: #fff;
 }
@@ -96,6 +105,9 @@
 }
 .ca {
   color: #aaa;
+}
+.cb {
+  color: #bbb;
 }
 .cc {
   color: #ccc;
@@ -143,6 +155,9 @@ li {
 .flex-jus {
   justify-content: space-between;
 }
+.flex-aro {
+  justify-content: space-around;
+}
 .flex-center {
   justify-content: center;
 }
@@ -180,7 +195,7 @@ li {
 .pb-30 {
   padding-bottom: 0.4rem;
 }
-mb-20 {
+.mb-20 {
   margin-bottom: 0.26666667rem;
 }
 .btn-xianguang {
@@ -212,7 +227,7 @@ mb-20 {
 }
 .details-price ul .middle {
   margin: 0 0.13333333rem;
-  width: 1.70666667rem;
+  padding: 0 2px;
   height: 0.48rem;
   line-height: 0.48rem;
   border: 1px solid #ffe5e5;
@@ -242,8 +257,7 @@ mb-20 {
 .progress-bar {
   width: 2.85333333rem;
   height: 17px;
-  background-color: #FFFBF9;
-  border: 1px solid #ffc5af;
+  background-color: #dedede;
   border-radius: 9px;
   clear: both;
   overflow: hidden;
@@ -252,13 +266,13 @@ mb-20 {
   margin-left: 5px;
   float: left;
   color: #fff;
-  line-height: 1.4em;
+  line-height: 1.5em;
 }
 .progress-bar .percent {
   margin-right: 5px;
   float: right;
-  color: #FFC5AF;
-  line-height: 1.4em;
+  color: #fff;
+  line-height: 1.5em;
 }
 .progress-bar .success {
   float: left;
@@ -382,5 +396,122 @@ mb-20 {
   height: 50px;
   line-height: 50px;
   background: linear-gradient(-90deg, #fe7c5a, #ff986e);
+  text-align: center;
+}
+.footer-tip.failed {
+  background: #999999;
+}
+.draw-order-nav {
+  height: 45px;
+  border-bottom: 1px solid #eee;
+}
+.draw-order-nav li {
+  position: relative;
+  height: 45px;
+  line-height: 45px;
+  color: #999999;
+}
+.draw-order-nav li.on {
+  color: #FF5E5C;
+}
+.draw-order-nav li.on::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1.33333333rem;
+  height: 2px;
+  background-color: #FF5E5C;
+  transform: translateX(-50%);
+}
+.draw-order > li {
+  position: relative;
+  border-bottom: 10px solid #F8F8F8;
+}
+.draw-order > li .draw-icon {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 1.33333333rem;
+  height: 1.17333333rem;
+}
+.draw-order .goods-pic {
+  width: 2.26666667rem;
+  height: 2.26666667rem;
+  border: 1px solid #EEEEEE;
+}
+.draw-order ul {
+  flex: 1;
+  margin-left: 0.29333333rem;
+}
+.draw-order .draw-code {
+  margin-top: 10px;
+  padding-left: 2.56rem;
+}
+.draw-order .draw-code p {
+  margin-bottom: 5px;
+}
+.draw-order .status {
+  display: inline-block;
+  padding: 0 5px;
+  color: #FF5E5C;
+  border: 1px solid #ffafb5;
+  border-radius: 2px;
+}
+.draw-order .show-code span {
+  color: #FEB89D;
+}
+.btns {
+  margin-top: 20px;
+  padding-top: 13px;
+  border-top: 1px solid #eee;
+}
+.btns .query-btn {
+  margin-right: 5px;
+  width: 2.26666667rem;
+  height: 28px;
+  line-height: 28px;
+  color: #999;
+  border: 1px solid #ccc;
+  border-radius: 14px;
+}
+.btns .confir-btn {
+  width: 2.29333333rem;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+  background: linear-gradient(-90deg, #fe7c5a, #ff986e);
+  border-radius: 14px;
+}
+.pay-tip {
+  height: 173px;
+  background: linear-gradient(90deg, #fe745a, #ff485e);
+}
+.pay-tip > img {
+  width: 1.14666667rem;
+  height: 1.14666667rem;
+}
+.code-list {
+  max-height: 250px;
+  overflow-y: scroll;
+}
+.btn-grey {
+  display: inline-block;
+  width: 4rem;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #cccccc;
+  border-radius: 20px;
+  color: #999;
+  text-align: center;
+}
+.btn-red {
+  display: inline-block;
+  width: 4rem;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #FF5E5C;
+  border-radius: 20px;
+  color: #FF5E5C;
   text-align: center;
 }

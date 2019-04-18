@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <script src="lib/flexible.js"></script>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="stylesheet" href="lib/mui/css/mui.min.css">
+  <link rel="stylesheet" href="css/xianguang.css">
+  <title>我的抽奖</title>
+</head>
+
+<body>
+  <header class="mui-bar mui-bar-nav">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+    <h1 class="mui-title">我的抽奖</h1>
+  </header>
+  <div class="mui-content">
+    <ul class="draw-order-nav flex flex-aro">
+      <li class="fz-15 on" data-status="0">正在参与</li>
+      <li class="fz-15" data-status="1">参与记录</li>
+      <li class="fz-15" data-status="2">中奖纪录</li>
+    </ul>
+    <ul class="draw-order">
+      <!-- <li class="ptb-30 plr-20 draw-order-item">
+        <div class="flex">
+          <img src="img/goods-2.png" class="goods-pic" alt="">
+          <ul class="flex flex-column flex-jus">
+            <li class="flex flex-jus">
+              <div class="fz-16 c3">奖品编号：SM3710</div>
+              <div class="fz-11 status">待开奖</div>
+            </li>
+            <li class="fz-14 c9">开奖时间：2019-05-10 15:00:00</li>
+            <li class="flex flex-jus">
+              <div class="fz-14 c9">抽奖码：6个</div>
+              <div class="show-code"><span class="fz-11">展开</span> <span
+                  class="mui-icon mui-icon-arrowdown fz-11"></span></div>
+            </li>
+          </ul>
+        </div>
+        <div class="draw-code" style="display:none;">
+          <p class="fz-13 cb">抽奖码1：GH19032425781541</p>
+          <p class="fz-13 cb">抽奖码2：GH19032412451542</p>
+          <p class="fz-13 cb">抽奖码3：GH19032485411543</p>
+          <p class="fz-13 cb">抽奖码4：GH19032425781544</p>
+          <p class="fz-13 cb">抽奖码5：GH19032412451545</p>
+          <p class="fz-13 cb">抽奖码6：GH19032485411546</p>
+        </div>
+        <div class="btns flex flex-end">
+          <a href="#" class="query-btn fz-14 mui-text-center">查看物流</a>
+          <div class="confir-btn fz14 mui-text-center">确认收货</div>
+        </div>
+        <img src="img/icon-draw.png" class="draw-icon" alt="">
+      </li> -->
+    </ul>
+    <div class="ptb-30 mui-text-center">
+      <span class="fz-15 c6" id="get-more">加载更多>>></span>
+    </div>
+  </div>
+  <script src="lib/jquery-3.4.0.min.js"></script>
+  <script src="lib/mui/js/mui.min.js"></script>
+  <script src="lib/template-web.js"></script>
+  <script src="lib/mock-min.js"></script>
+  <script>
+    mui.init({
+      swipeBack: true //启用右滑关闭功能
+    });
+    $(".mui-content").on("click",".show-code", function () {
+      var text = $(this).children().eq(0).text();
+      if (text == "展开") {
+        $(this).children().eq(0).text("收起");
+        $(this).children().eq(1).removeClass("mui-icon-arrowdown").addClass("mui-icon-arrowup");
+        $(this).parents(".draw-order-item").children(".draw-code").show()
+      } else {
+        $(this).children().eq(0).text("展开");
+        $(this).children().eq(1).removeClass("mui-icon-arrowup").addClass("mui-icon-arrowdown");
+        $(this).parents(".draw-order-item").children(".draw-code").hide()
+      }
+    })
+
+    var status = 0,page = 1;
+    $(".draw-order-nav > li").on("click",function () {
+        $(this).addClass('on').siblings().removeClass('on');
+        var sta = parseInt($(this).data("status"));
+        if(sta!=status){
+            status = sta;
+            page = 1;
+            getList();
+            $("#get-more").show();
+            $(".draw-order").html("");
+        }
+    })
+
+    function getList(){
+        Mock.mock('http://123.com?status='+status+"&page="+page,{
+            "error|0-1":0,
+            "list|10":[{
+                "thumb":"img/goods-2.png",
+                "prizeNumber":/[A-Z]{2}\d{4}/,
+                "status|1":[0,1,2,3,4],
+                "statusStr|1":["待开奖","未中奖 退款中","待发货","待收货","已完成"],
+                "drawDate":'@datetime()',
+                "total|1-10":5,
+                "code":[/[A-Z]{2}\d{14}/,/[A-Z]{2}\d{14}/,/[A-Z]{2}\d{14}/,/[A-Z]{2}\d{14}/,/[A-Z]{2}\d{14}/]
+            }],
+            "page|+1":1
+        })
+        $.ajax({
+            url: 'http://123.com',
+            data:{
+                status: status,
+                page: page++
+            },
+            type: 'GET',
+            dataType: 'json'
+        })
+        .done(function(res) {
+            console.log(res)
+            if(res.error==0){
+                var html = template('tpl-draw-order',res);
+                $(".draw-order").append(html);
+            }else {
+                var notData = "<li class='fz-15 c9 mui-text-center ptb-30' style='border:none;'>暂无更多数据</li>";
+                $(".draw-order").append(notData);
+                $("#get-more").hide();
+            }
+
+        })
+        .fail(function(error) {
+            console.log(error);
+        });
+    }
+    getList();
+    $("#get-more").on('click', function() {
+        getList();
+    });
+  </script>
+  <script id="tpl-draw-order" type="text/html">
+    {{each list as item}}
+    <li class="ptb-30 plr-20 draw-order-item">
+      <div class="flex">
+        <img src="{{item.thumb}}" class="goods-pic" alt="">
+        <ul class="flex flex-column flex-jus">
+          <li class="flex flex-jus">
+            <div class="fz-16 c3">奖品编号：{{item.prizeNumber}}</div>
+            <div class="fz-11 status">{{item.statusStr}}</div>
+          </li>
+          <li class="fz-14 c9">开奖时间：{{item.drawDate}}</li>
+          <li class="flex flex-jus">
+            <div class="fz-14 c9">抽奖码：{{item.total}}个</div>
+            <div class="show-code"><span class="fz-11">展开</span> <span class="mui-icon mui-icon-arrowdown fz-11"></span></div>
+          </li>
+        </ul>
+      </div>
+      <div class="draw-code" style="display:none;">
+      {{each item.code as codeitem index}}
+          <p class="fz-13 cb">抽奖码{{++index}}：{{codeitem}}</p>
+      {{/each}}
+      </div>
+      {{if item.status == 4}}
+      <div class="btns flex flex-end">
+        <a href="#" class="query-btn fz-14 mui-text-center">查看物流</a>
+        <div class="confir-btn fz14 mui-text-center">确认收货</div>
+      </div>
+      {{/if}}
+      {{if item.status == 2 || item.status == 3 || item.status == 4}}
+        <img src="img/icon-draw.png" class="draw-icon" alt="">
+      {{/if}}
+    </li>
+    {{/each}}
+  </script>
+</body>
+
+</html>
