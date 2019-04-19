@@ -1,0 +1,147 @@
+{
+  "error": 0,
+  "round":[
+    {
+      "id":12,
+      "count":1
+    },
+    {
+      "id":13,
+      "count":2
+    },
+    {
+      "id":14,
+      "count":3
+    },
+    {
+      "id":15,
+      "count":4
+    },
+    {
+      "id":16,
+      "count":5
+    },
+    {
+      "id":17,
+      "count":6
+    },
+    {
+      "id":18,
+      "count":7
+    },
+    {
+      "id":19,
+      "count":8
+    },
+    {
+      "id":20,
+      "count":9
+    },
+    {
+      "id":21,
+      "count":10
+    }
+  ],
+  "data": [
+    {
+      "cateName":"红酒",
+      "cateId":"1",
+      "goodsList":[
+        {
+          "id":"11",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"0",
+          "status":"0"
+        },
+        {
+          "id":"12",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"200",
+          "status":"1"
+        },
+        {
+          "id":"13",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"200",
+          "status":"2"
+        },
+        {
+          "id":"14",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"180",
+          "status":"3"
+        }
+      ]
+    },
+    {
+      "cateName":"日用品",
+      "cateId":"1",
+      "goodsList":[
+        {
+          "id":"11",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"150",
+          "status":"0"
+        },
+        {
+          "id":"12",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"100",
+          "status":"1"
+        },
+        {
+          "id":"13",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"20",
+          "status":"2"
+        },
+        {
+          "id":"14",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"http://img1.y01.cn/45bad023d2cd33bdafe960fbf39033f3.jpg",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"80",
+          "status":"3"
+        }
+      ]
+    }
+  ]
+}

@@ -3,58 +3,396 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
-  <script src="http://g.tbcdn.cn/mtb/lib-flexible/{{version}}/??flexible_css.js,flexible.js"></script>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+  <script src="lib/flexible.js"></script>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <link rel="stylesheet" href="lib/mui/css/mui.min.css">
   <link rel="stylesheet" href="lib/swipe/css/swiper.min.css">
   <link rel="stylesheet" href="css/xianguang.css">
-  <title>Document</title>
+  <title>幸运抽奖</title>
 </head>
 
 <body>
   <header class="mui-bar mui-bar-nav">
     <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-    <a class="mui-action-back mui-btn mui-btn-link mui-pull-right" style="color:#2B2B2B">关闭</a>
     <h1 class="mui-title">幸运抽奖</h1>
   </header>
-  <div class="mui-content">
-    <div class="swiper-container">
+  <div class="mui-content" style="background-color:#f8f8f8;">
+    <!-- <div class="swiper-container" id="round-nav">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">Slide 1</div>
-        <div class="swiper-slide">Slide 2</div>
-        <div class="swiper-slide">Slide 3</div>
-        <div class="swiper-slide">Slide 4</div>
-        <div class="swiper-slide">Slide 5</div>
-        <div class="swiper-slide">Slide 6</div>
-        <div class="swiper-slide">Slide 7</div>
-        <div class="swiper-slide">Slide 8</div>
-        <div class="swiper-slide">Slide 9</div>
-        <div class="swiper-slide">Slide 10</div>
+        <div class="swiper-slide fz-14 on" data-id="#">第1轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第2轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第3轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第4轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第5轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第6轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第7轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第8轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第9轮</div>
+        <div class="swiper-slide fz-14" data-id="#">第10轮</div>
       </div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
+    </div> -->
+    <div id="app">
+      <swiper :rounds="list.round"></swiper>
+      <goods-list v-for="item in list.data" :cate-goods="item"></goods-list>
+      <!-- <article class="plr-20">
+        <div class="ptb-30 fz-16 c3">红酒</div>
+        <ul class="goods-list">
+          <li>
+            <a href="#" class="flex">
+              <img src="img/goods-1.png" alt="">
+              <div class="ml-30 flex flex-column flex-jus">
+                <div class="fz-15 c3">拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱</div>
+                <div class="fz-12 c9">开奖时间：2019-05-10 15:00:00</div>
+                <div class="flex flex-jus flex-align-center">
+                  <div class="progress-bar"> -->
+                    <!-- 参团中进度 -->
+                    <!-- <div class="number fz-10">150人</div>
+                    <div class="percent fz-10">79%</div> -->
+                    <!-- 参团中进度 -->
+                    <!-- 成功参团 -->
+                    <!-- <div class="fz-10 cf mui-text-center success">拼团成功</div> -->
+                    <!-- 成功参团 -->
+                    <!-- <div class="filled" style="width:79%;"></div>
+                  </div> -->
+                  <!-- <div class="btn-mini-red fz-12">参加</div> -->
+                  <!-- <div class="btn-mini-red-o">未开始</div> -->
+                  <!-- <div class="btn-mini-disabled">未成团</div> -->
+                  <!-- <div class="btn-mini-success">已开奖</div>
+                </div>
+              </div>
+              <div class="count-down">
+                <img src="img/icon-time.png" alt="">
+                <div class="cf fz-11 time">剩10:25:14</div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </article> -->
     </div>
   </div>
-  <nav class="mui-bar mui-bar-tab">
-
-  </nav>
+  <script src="lib/vue.js"></script>
+  <script src="lib/jquery-3.4.0.min.js"></script>
   <script src="lib/mui/js/mui.min.js"></script>
   <script src="lib/swipe/js/swiper.min.js"></script>
   <script>
     mui.init({
       swipeBack: true //启用右滑关闭功能
     });
-    var swiper = new Swiper('.swiper-container', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      centeredSlides: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-    });
+    var json = {
+  "error": 0,
+  "round":[
+    {
+      "id":12,
+      "count":1,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":13,
+      "count":2,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":14,
+      "count":3,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":15,
+      "count":4,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":16,
+      "count":5,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":1
+    },
+    {
+      "id":17,
+      "count":6,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":18,
+      "count":7,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":19,
+      "count":8,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":20,
+      "count":9,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    },
+    {
+      "id":21,
+      "count":10,
+      "startTime":"2019-05-10  14:00:00",
+      "endTime":"2019-05-10  15:00:00",
+      "isNow":0
+    }
+  ],
+  "data": [
+    {
+      "cateName":"红酒",
+      "cateId":"1",
+      "goodsList":[
+        {
+          "id":"11",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-1.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"0",
+          "status":"0"
+        },
+        {
+          "id":"12",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-2.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"200",
+          "status":"1"
+        },
+        {
+          "id":"13",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-1.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"200",
+          "status":"2"
+        },
+        {
+          "id":"14",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-2.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"180",
+          "status":"3"
+        }
+      ]
+    },
+    {
+      "cateName":"日用品",
+      "cateId":"1",
+      "goodsList":[
+        {
+          "id":"11",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-1.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"150",
+          "status":"0"
+        },
+        {
+          "id":"12",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-2.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"100",
+          "status":"1"
+        },
+        {
+          "id":"13",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-1.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"20",
+          "status":"2"
+        },
+        {
+          "id":"14",
+          "title":"拉菲红酒拉菲官方正品原装瓶进口巴斯克花园干红葡萄酒箱",
+          "thumb":"img/goods-2.png",
+          "endTime":"2019-05-10  15:00:00",
+          "startTime":"2019-05-10  14:00:00",
+          "drawTime":"2019-05-10  15:10:00",
+          "headcount":"200",
+          "nowcount":"80",
+          "status":"3"
+        }
+      ]
+    }
+  ]
+}
+    var tplSwiper = `<div class="swiper-container" id="round-nav">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide fz-14" v-for="item in rounds" :class="item.isNow == 1 ? 'on':''" :data-id="item.id">第{{item.count}}轮</div>
+      </div>
+    </div>`;
+    var tplGoodsItem = `<li>
+            <a href="#" class="flex">
+              <img :src="goodItem.thumb" alt="">
+              <div class="ml-30 flex flex-column flex-jus" style="flex: 1;">
+                <div class="fz-15 c3">{{goodItem.title}}</div>
+                <div class="fz-12 c9">开奖时间：{{goodItem.drawTime}}</div>
+                <div class="flex flex-jus flex-align-center">
+                  <div class="progress-bar">
+                    <div class="number fz-10" v-if="countPercent != 100">{{parseInt(goodItem.nowcount) ? goodItem.nowcount + '人' : ''}}</div>
+                    <div class="percent fz-10" v-if="countPercent != 100">{{countPercent}}%</div>
+                    <div class="fz-10 cf mui-text-center success" v-else>拼团成功</div>
+                    <!-- 成功参团 -->
+                    <div class="filled" :style="{width: countPercent +'%'}"></div>
+                  </div>
+                  <div class="btn-mini-red fz-12" v-if="goodItem.status == 1">参加</div>
+                  <div class="btn-mini-red-o" v-else-if="goodItem.status == 0">未开始</div>
+                  <div class="btn-mini-disabled" v-else-if="goodItem.status == 3">未成团</div>
+                  <div class="btn-mini-success" v-else>已开奖</div>
+                </div>
+              </div>
+              <div class="count-down">
+                <img src="img/icon-time.png" alt="">
+                <div class="cf fz-11 time">剩{{hour}}:{{minute}}:{{second}}</div>
+              </div>
+            </a>
+          </li>`
+    var tplGoodsList = `<article class="plr-20">
+        <div class="ptb-30 fz-16 c3">{{this.cateGoods.cateName}}</div>
+        <ul class="goods-list">
+          <goods-item v-for="item in cateGoods.goodsList" :good-item="item"></goods-item>
+        </ul>
+      </article>`;
+      Vue.component("swiper",{
+        template:tplSwiper,
+        props:["rounds"],
+        data:function(){
+          return {}
+        },
+        mounted:function(){
+          var swiper = new Swiper('#round-nav', {
+            centeredSlides: true,
+            slidesPerView: 3,
+            slideToClickedSlide: true,
+            on: {
+              click: function (e) {
+                console.log($(e.target).data("id"));
+                $(e.target).addClass("on").siblings(".swiper-slide").removeClass("on");
+              },
+            },
+          });
+          var index = 0;
+          this.rounds.forEach((item,i) => {
+            if(item.isNow==1){
+              index = i;
+            }
+          });
+          swiper.slideTo(index);
+        }
+      })
+      Vue.component("goods-item",{
+        template:tplGoodsItem,
+        props:["goodItem"],
+        data:function(){
+          return {
+            difftime:0,
+            clearTime:null,
+            hour:"00",
+            minute:"00",
+            second:"00"
+          }
+        },
+        computed: {
+          countPercent:function(){
+            var percent = this.goodItem.nowcount / this.goodItem.headcount;
+            if(percent==1){
+              return 100;
+            }else{
+              return percent.toFixed(2) * 100;
+            }
+          }
+        },
+        mounted:function() {
+          this.clearTime = setInterval(this.countDown,1000);
+        },
+        methods: {
+          countDown(){
+            var nowDate = new Date().getTime();
+            if(this.goodItem.status == 0){
+              this.difftime = new Date(this.goodItem.startTime).getTime() - nowDate;
+            }else{
+              this.difftime = new Date(this.goodItem.endTime).getTime() - nowDate;
+            }
+            if(this.difftime>0){
+              this.hour = this.addZero(Math.floor(this.difftime / 1000 / 60 / 60 % 24));
+              this.minutes = this.addZero(Math.floor(this.difftime / 1000 / 60 % 60));
+              this.second = this.addZero(Math.floor(this.difftime / 1000 % 60));
+            }else{
+              this.hour = '00';
+              this.minutes = '00';
+              this.second = '00';
+              clearInterval(this.clearTime);
+            }
+          },
+          addZero(num){
+            if(num>=10){
+              return num;
+            }else{
+              return "0"+num;
+            }
+          }
+        }
+      })
+      Vue.component("goods-list",{
+        template:tplGoodsList,
+        props:["cateGoods"],
+        data:function(){
+          return {}
+        }
+      })
+
+
+      // 实例化
+      var vue = new Vue({
+        	el:'#app',
+          data:function(){
+            return {
+              list:json
+            }
+          }
+      })
   </script>
 </body>
 
